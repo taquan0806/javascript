@@ -32,5 +32,5 @@ const book = {
 
 document.getElementById("book").innerHTML = `
 <h2>${book.name}</h2>
-<p>Giá: ${book.price} VNĐ</p>
+<p>Giá: ${book.price} </p>
 `;
