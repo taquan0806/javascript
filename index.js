@@ -23,3 +23,14 @@ console.log("Tuổi:", tuoi);
 
 document.getElementById("info").innerHTML =
    `Họ tên: ${hoTen} <br> Tuổi: ${tuoi}`;
+
+const book = {
+  id: 1,
+  name: "Sach",
+  price: 200000,
+};
+
+document.getElementById("book").innerHTML = `
+<h2>${book.name}</h2>
+<p>Giá: ${book.price} VNĐ</p>
+`;
