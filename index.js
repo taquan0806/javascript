@@ -5,9 +5,12 @@ const school = "FPT Polytechnic";
 let isAdmin = true;
 
 console.log(name);
-alert("Xin chào JavaScript");
+// alert("Xin chào JavaScript");
 
-const name = "taquan"
+name = "quanta"
 const age = 20;
 
-document.getElementById("title").innerHTML = "Xin chào JavaScript";
+// document.getElementById("title").innerHTML = "Xin chào JavaScript";
+
+console.log(name);
+console.log(age==20);
