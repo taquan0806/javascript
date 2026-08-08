@@ -76,17 +76,46 @@
 //   console.log(item);
 // });
 
-axios.get('http://localhost:3000/students').then((res)=>{
-  const html = res.data.map((student)=>{
-    return `
-    <tr>
-    <td>${student.id}</td>
-    <td>${student.name}</td>
-    <td>${student.age}</td>
-    <td>${student.email}</td>
-    </tr>
-    `
-  }).join("");
+// axios.get('http://localhost:3000/students').then((res)=>{
+//   const html = res.data.map((student)=>{
+//     return `
+//     <tr>
+//     <td>${student.id}</td>
+//     <td>${student.name}</td>
+//     <td>${student.age}</td>
+//     <td>${student.email}</td>
+//     </tr>
+//     `
+//   }).join("");
 
-  document.getElementById("student-list").innerHTML = html
-})
+//   document.getElementById("student-list").innerHTML = html
+// })
+
+function  loadStudent() {
+  axios.get("http://localhost:3000/students").then((res)=>{
+    const html = res.data.map((student)=>{
+      return `
+      <tr>
+      <td>${student.id}</td>
+      <td>${student.name}</td>
+      <td>${student.age}</td>
+      <td>${student.email}</td>
+      <td><button onclick="deleteStudent(${student.id})">Xóa</button></td>
+      </tr>
+      `
+    }).join("");
+    document.getElementById("student-list").innerHTML =html;
+  })
+}
+
+function deleteStudent(id){
+  const result = confirm("Bạn có chắc muốn xóa ko?");
+
+  if(result){
+    axios.delete(`http://localhost:3000/students/${id}`).then(()=>{
+      loadStudent();
+    });
+  }
+}
+
+loadStudent();
