@@ -48,30 +48,47 @@
 //   <td>${student.email}</td>
 // </tr>
 // `;
-const numbers = [10, 20, 30];
-console.log(numbers[0]);
-console.log(numbers[1]);
+// const numbers = [10, 20, 30];
+// console.log(numbers[0]);
+// console.log(numbers[1]);
 
-const students = [
-  {
-    id: 1,
-    name: "An",
-    age: 20,
-  },
-  {
-    id: 2,
-    name: "Bi",
-    age: 21,
-  },
-  {
-    id: 3,
-    name: "Linh",
-    age: 22,
-  },
-];
+// const students = [
+//   {
+//     id: 1,
+//     name: "An",
+//     age: 20,
+//   },
+//   {
+//     id: 2,
+//     name: "Bi",
+//     age: 21,
+//   },
+//   {
+//     id: 3,
+//     name: "Linh",
+//     age: 22,
+//   },
+// ];
 
-const numbers = [1, 2, 3];
+// const numbers = [1, 2, 3];
 
-numbers.map((item) => {
-  console.log(item);
+// numbers.map((item) => {
+//   console.log(item);
+// });
+
+axios.get("http://localhost:3000/students").then((res) => {
+  const html = res.data
+    .map(
+      (student) => `
+        <tr>
+            <td>${student.id}</td>
+            <td>${student.name}</td>
+            <td>${student.age}</td>
+            <td>${student.email}</td>
+        </tr>
+    `,
+    )
+    .join("");
+
+  document.getElementById("student-list").innerHTML = html;
 });
