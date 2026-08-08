@@ -76,19 +76,17 @@
 //   console.log(item);
 // });
 
-axios.get("http://localhost:3000/students").then((res) => {
-  const html = res.data
-    .map(
-      (student) => `
-        <tr>
-            <td>${student.id}</td>
-            <td>${student.name}</td>
-            <td>${student.age}</td>
-            <td>${student.email}</td>
-        </tr>
-    `,
-    )
-    .join("");
+axios.get('http://localhost:3000/students').then((res)=>{
+  const html = res.data.map((student)=>{
+    return `
+    <tr>
+    <td>${student.id}</td>
+    <td>${student.name}</td>
+    <td>${student.age}</td>
+    <td>${student.email}</td>
+    </tr>
+    `
+  }).join("");
 
-  document.getElementById("student-list").innerHTML = html;
-});
+  document.getElementById("student-list").innerHTML = html
+})
