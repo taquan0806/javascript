@@ -1,4 +1,4 @@
-const params = neww URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
 
 const id = params.get("id")
 
@@ -20,13 +20,13 @@ document.getElementById("form-edit").addEventListener("submit", (e) => {
   const email = document.getElementById("email").value;
 
   axios
-    .post("http://localhost:3000/students", {
+    .put(`http://localhost:3000/students/${id}`, {
       name,
       age,
       email,
     })
     .then(() => {
-      alert("Thêm sinh viên thành công");
+      alert("Sửa sinh viên thành công");
 
       window.location.href = "index.html";
     });
