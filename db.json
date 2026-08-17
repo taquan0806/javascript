@@ -17,5 +17,12 @@
       "age": "22",
       "id": 4
     }
+  ],
+  "users": [
+    {
+      "email": "taa@gmail.com",
+      "password": "$2a$10$MOqJ322H2NaM8neXTaBHBOTOdosyn7Stg1dnI6tZDNjGzxppY3ov.",
+      "id": 1
+    }
   ]
 }
